@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="algorithm.day01._704.Solution" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-18T12:55:44" hostname="DESKTOP-JHTFD92" time="0.011">
+  <properties/>
+  <testcase name="example1()" classname="algorithm.day01._704.Solution" time="0.011"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
