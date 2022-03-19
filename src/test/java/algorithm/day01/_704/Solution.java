@@ -4,8 +4,6 @@ package algorithm.day01._704;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 /**
  *
  * 704. Binary Search
