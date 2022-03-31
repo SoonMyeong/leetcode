@@ -19,18 +19,46 @@ import org.junit.jupiter.api.Test;
 public class Solution {
 
 
+    /**
+     * 내 이해력을 올리기 위해
+     * s1 = "ab" , s2 = "cdba"
+     *
+     *  a b
+     *  c d b a
+     *
+     *
+     * s1map = {1,1,0,0,0...}
+     * s2map = {0,0,1,1,0...}
+     * i = 0;
+     * while(i<2)
+     * 1)
+     *      s1map = {1,1,0,0,0...}
+     *      s2map = {0,1,0,1,0...} -> b-a = 1, s2map[1]++; // c-a = 2 , s2map[2]--;
+     * 2)
+     *      s1map = {1,1,0,0,0...}
+     *      s2map = {1,1,0,0,0...}
+     *
+     *
+     *
+     */
     public boolean checkInclusion(String s1, String s2) {
         if (s1.length() > s2.length())
             return false;
+
         int[] s1map = new int[26];
         int[] s2map = new int[26];
+
         for (int i = 0; i < s1.length(); i++) {
             s1map[s1.charAt(i) - 'a']++;
             s2map[s2.charAt(i) - 'a']++;
         }
+
         for (int i = 0; i < s2.length() - s1.length(); i++) {
             if (matches(s1map, s2map))
                 return true;
+
+            //여기 부분이 슬라이딩 윈도우 알고리즘에서의 범위의 첫번째 인덱스는 줄이고, 범위의 마지막 인덱스는
+            //늘려가는 방식을 적용
             s2map[s2.charAt(i + s1.length()) - 'a']++;
             s2map[s2.charAt(i) - 'a']--;
         }
@@ -43,6 +71,13 @@ public class Solution {
                 return false;
         }
         return true;
+    }
+
+    @Test
+    public void example0() {
+        String s1 = "ab";
+        String s2 = "cdba";
+        Assertions.assertTrue(checkInclusion(s1,s2));
     }
 
     @Test
